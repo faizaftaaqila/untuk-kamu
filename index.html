@@ -362,24 +362,8 @@
       <p>[ Tulis pesan personalmu di sini — kenangan singkat, ucapan spesifik, atau apa pun yang ingin kamu sampaikan. ]</p>
 
       <div class="eyebrow gallery-label">beberapa kenangan</div>
-      <div class="gallery">
-        <!-- Setiap foto: ganti src="foto1.jpg" dengan nama file fotomu (taruh file fotonya satu folder dengan HTML ini) -->
-        <div class="polaroid">
-          <div class="frame"><img src="foto1.jpg" alt="" onerror="this.parentElement.innerHTML='';"></div>
-          <span class="cap">[ caption ]</span>
-        </div>
-        <div class="polaroid">
-          <div class="frame"><img src="foto2.jpg" alt="" onerror="this.parentElement.innerHTML='';"></div>
-          <span class="cap">[ caption ]</span>
-        </div>
-        <div class="polaroid">
-          <div class="frame"><img src="foto3.jpg" alt="" onerror="this.parentElement.innerHTML='';"></div>
-          <span class="cap">[ caption ]</span>
-        </div>
-        <div class="polaroid">
-          <div class="frame"><img src="foto4.jpg" alt="" onerror="this.parentElement.innerHTML='';"></div>
-          <span class="cap">[ caption ]</span>
-        </div>
+      <div class="gallery" id="photoGallery">
+        <!-- Foto akan dimasukkan secara otomatis lewat JS dari foto.json -->
       </div>
 
       <div class="quote-line">
@@ -404,6 +388,21 @@
 </div>
 
 <script>
+  // Pemanggil foto dari foto.json
+  fetch('foto.json')
+    .then(response => response.json())
+    .then(photos => {
+      const gallery = document.getElementById('photoGallery');
+      gallery.innerHTML = photos.map(photo => `
+        <div class="polaroid">
+          <div class="frame">
+            <img src="${photo.src}" alt="${photo.caption}" onerror="this.parentElement.innerHTML='';">
+          </div>
+          <span class="cap">${photo.caption}</span>
+        </div>
+      `).join('');
+    })
+    .catch(err => console.error('Gagal memuat foto:', err));
   const world = document.getElementById('world');
   const her = document.getElementById('her');
   const revealBtn = document.getElementById('revealBtn');
