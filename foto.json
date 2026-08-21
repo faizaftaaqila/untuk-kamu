@@ -1,18 +1,18 @@
 [
   {
-    "src": "foto1.jpg",
-    "caption": "Kenangan di pantai"
+    "src": "images/foto1.webp",
+    "caption": "Hujan kala itu"
   },
   {
-    "src": "foto2.jpg",
-    "caption": "Momen jalan-jalan"
+    "src": "images/foto2.webp",
+    "caption": "Marahmu di cafe itu"
   },
   {
-    "src": "foto3.jpg",
-    "caption": "Foto favorit"
+    "src": "images/foto4.webp",
+    "caption": "Restoran pertama kita"
   },
   {
-    "src": "foto4.jpg",
-    "caption": "Sampai jumpa lagi"
+    "src": "images/foto5.webp",
+    "caption": "Bandung dengan dunia barunya"
   }
 ]
